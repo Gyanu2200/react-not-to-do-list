@@ -1,19 +1,19 @@
 import React from "react";
 import "./App.css";
-import EntryList from "./component/EntryList";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Title from "./component/Title";
 import InputForm from "./component/InputForm";
+import ListArea from "./component/ListArea";
+
 
 function App() {
   return (
   <div className="App">
-    {/* Title */}
-    <h2 className="title mt-5">Not To Do List</h2>
+    <Title/>
 
-    {/* Form section */}
     <InputForm/>
-
-    {/* Entry List */}
-    <EntryList/>
+    
+    <ListArea/>
   </div>
   ); 
 }
