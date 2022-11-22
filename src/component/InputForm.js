@@ -1,7 +1,8 @@
 import { React, useState } from "react";
 import { Form, Row, Col, Button } from "react-bootstrap";
+import { randomStr } from "../util";
 
-export default function InputForm() {
+export default function InputForm({ addTask }) {
   // we are using useState to store the value from onchange on the state memory. So the value doesn't disappear when the component re-renders
   // and the initial value of useState is given as a an object with key and value pair,
   const [captureInput, setCaptureInput] = useState({ type: "entry" });
@@ -9,10 +10,21 @@ export default function InputForm() {
     // const { name, value } = e.target;
     // destructuring
     const { value, name } = e.target;
+    setCaptureInput({
+      ...captureInput,
+      [name]: value,
+    });
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    const _id = randomStr();
+    addTask({ ...captureInput, _id });
+    console.log();
   };
   return (
     <div>
-      <Form className="m-5">
+      <Form onSubmit={handleOnSubmit} className="m-5">
         <Row className="my-4">
           <Col className="">
             <Form.Control
@@ -33,7 +45,7 @@ export default function InputForm() {
             />
           </Col>
         </Row>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit align-center">
           <i className="fa-solid fa-plus"></i>
           <span className="p-2">Add New Task</span>
         </Button>

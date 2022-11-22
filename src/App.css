@@ -5,11 +5,10 @@
 }
 
 body{
-  background-color: rgb(228, 207, 151);
+  /* background-color: rgb(228, 207, 151); */
 }
 .App {
-  text-align: center;
-  /* background: rgb(228, 207, 151); */
-  /* min-height: 100vh; */
+  background: rgb(228, 207, 151);
+  min-height: 100vh;
   /* margin-top: 3rem; */
 }
